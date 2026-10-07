@@ -1,0 +1,15 @@
+# ansible-navigator.yml
+
+---
+ansible-navigator:
+  execution-environment:
+    container-engine: podman     ; fails for openshift clusters as they use oci-r
+    enabled: true
+    image: registry.redhat.io/ansible-automation-platform-26/ee-supported-rhel9:latest
+    pull:
+      policy: missing    ; no unnecesary downloads
+      arguments:         ; don't use this in production
+        - "--tls-verify=false"
+  mode: stdout     ; no more need for -m stdout
+  playbook-artifact:
+    enable: false
