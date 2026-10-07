@@ -1,0 +1,11 @@
+# hello.yml
+
+---
+- name: Say hello to the world
+  hosts: all
+  become: false
+
+  tasks:
+  - name: Make sure the message is sent
+    ansible.builtin.debug:
+      msg: 'Hello, World!'    ; quotes for clarity, not out of necessity
